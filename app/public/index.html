@@ -8,6 +8,9 @@
 		<script src="/node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 		<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="/node_modules/socket.io-client/dist/socket.io.js"></script>
+		<script src="/node_modules/angular/angular.min.js"></script>
+
+		<script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 		<link rel="stylesheet" href="/node_modules/jquery-ui-dist/jquery-ui.min.css" />
 		<link rel="stylesheet" href="/node_modules/jquery-ui-dist/jquery-ui.theme.min.css" />
@@ -15,11 +18,20 @@
 
 		<link rel="stylesheet" href="/styles/style.css" />
 	</head>
-	<body>
-		<div class="container-fluid">
-			<div class="row">
-
-			</div>
+	<body ng-app="LogFusionApplication">
+		<div class="container-fluid" ui-view="main">
 		</div>
 	</body>
+	<footer>
+		<script src="/scripts/_main.js"></script>
+		<script src="/scripts/_states.js"></script>
+		<script src="/scripts/_run.js"></script>
+
+		<script src="/scripts/components/Desktop/Menu.js"></script>
+		<script src="/scripts/components/Desktop/Body.js"></script>
+
+		<script src="/scripts/controllers/DesktopController.js"></script>
+		<script src="/scripts/controllers/DesktopMenuController.js"></script>
+		<script src="/scripts/controllers/DesktopBodyController.js"></script>
+	</footer>
 </html>

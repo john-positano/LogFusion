@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "angular": "1.6.7",
     "async": "2.6.0",
     "bootstrap": "3.3.7",
     "dotenv": "4.0.0",
@@ -10,6 +11,7 @@
     "node-watch": "0.5.5",
     "nodejs-tail": "1.0.2",
     "opn": "5.1.0",
+    "packery": "2.1.1",
     "sha1": "1.1.1",
     "slice-file": "1.0.0",
     "socket.io": "2.0.4",

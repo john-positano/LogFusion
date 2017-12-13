@@ -11,7 +11,7 @@ const nodeSass = require('node-sass');
 
 const LogWatch = require('./modules/_logWatch');
 
-var logWatch = new LogWatch();
+process.logWatch = new LogWatch();
 
 console.log('Compiling Sass..');
 try {
@@ -36,7 +36,7 @@ httpApi.Server = httpApi.listen(
 
 wsApi.Server = new wsApi.createServer(
 	httpApi.Server,
-	logWatch,
+	process,
 	() => {
 		console.log(`LogFusion WebSocket API Server listening off of HTTP API Server on port 10101`);		
 	}

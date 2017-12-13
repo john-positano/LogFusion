@@ -1,2 +1,15 @@
-* {
-  border: 1px solid black; }
+div.row, div[class^=col-xs] {
+  border-bottom: 1px solid black; }
+
+div.container-fluid {
+  padding: 0px; }
+
+desktop-menu {
+  display: block; }
+  desktop-menu > div {
+    height: 50px; }
+
+desktop-body {
+  display: block; }
+  desktop-body > div {
+    height: calc(100vh - 50px); }

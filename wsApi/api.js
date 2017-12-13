@@ -3,19 +3,24 @@ require('dotenv').config();
 const async = require('async');
 
 var webSocketServerMiddlewareStack = [
-	(socket, next) => {
+	(socket, $rootScope, next) => {
 		socket.on(
-			'data',
-			console.log
+			'GET/logs/list',
+			() => {
+				socket.emit('POST/logs/list', process.logWatch._directoryListingArray);
+				return;
+			}
 		);
+		next();
 	}
 ];
 
 module.exports.createServer = class Server {
-	constructor (httpServer, logWatch, callback) {
+	constructor (httpServer, $rootScope, callback) {
 		this.webSocketServerMiddlewareStack = webSocketServerMiddlewareStack;
 		this.webSocketServer = require('socket.io')(httpServer);
 		this.sockets = [];
+		this.$rootScope = $rootScope; 
 
 		this.webSocketServer.on(
 			'connection',
@@ -26,7 +31,7 @@ module.exports.createServer = class Server {
 					.eachSeries(
 						this.webSocketServerMiddlewareStack,
 						(middleware, callback) => {
-							middleware(socket, callback);
+							middleware(socket, $rootScope, callback);
 						},
 						() => {
 							console.log('done');	
