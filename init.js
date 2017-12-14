@@ -41,3 +41,5 @@ wsApi.Server = new wsApi.createServer(
 		console.log(`LogFusion WebSocket API Server listening off of HTTP API Server on port 10101`);		
 	}
 );
+
+opn(`http://localhost:${httpApiServerPort}`, {app: ['safari']});
